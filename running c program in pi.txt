@@ -1,0 +1,23 @@
+# Reference = https://www.circuitbasics.com/how-to-write-and-run-a-c-program-on-the-raspberry-pi/
+
+1. create a new file  (save it in .cpp if it is a c++ file)
+		sudo nano hello.c
+		
+2. Write the code inside and save it
+
+		#include <stdio.h>
+
+		int main(){
+		   printf("Hello, World! \n");
+		   return 0;
+		}
+
+3. Compiling the program
+		gcc hello.c -o newname			//for c program
+		g++ -o newname hello.cpp  		//for c++ program
+
+4. Making the program executable by giving permission (x means converting to executable)
+		chmod +x newname
+		
+5. run the program
+		./newname

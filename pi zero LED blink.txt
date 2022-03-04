@@ -1,0 +1,132 @@
+Reference : https://circuitdigest.com/microcontroller-projects/basic-gpio-control-on-raspberry-pi-zero-w-blinking-an-led
+
+
+1. sudo apt install python3-pip
+
+2. sudo apt-get update
+
+3. sudo apt-get install rpi.gpio
+
+4. sudo apt install vim
+
+============================================================
+============================================================
+LED Blink Program
+
+#!/user/bin/python
+import RPi.GPIO as io
+import time
+io.setmode(io.BCM)
+led1 = 23
+
+io.setup(led1, io.OUT)
+
+while 1:
+	io.output(led1, True)
+	time.sleep(1)
+	io.output(led1, False)
+	time.sleep(1)
+
+
+
+============================================================
+============================================================
+to change system time  Reference - https://www.programiz.com/python-programming/datetime/current-datetime
+
+1. timedatectl set-ntp 0   #to disable the time automatic synchronize
+
+2. sudo timedatectl set-time '2021-12-17 16:05'
+
+
+============================================================
+============================================================
+
+#!/user/bin/python
+import RPi.GPIO as io
+import time
+from datetime import datetime
+import sqlite3
+import json
+
+io.setmode(io.BCM)
+led1 = 23
+io.setup(led1, io.OUT)
+
+#variable declaration
+x = "LED Status"
+#dictionary
+d = {}
+#id
+num = 0
+
+
+
+#to connect to database
+con = sqlite3.connect('sharks.db')
+cur = con.cursor()
+
+#now = datetime.now()
+
+
+
+
+while 1:
+    #json Read data
+    j = open("new.json", "r")
+    d = json.load(j)
+    j.close()
+    num = d.get("ID")
+
+    num = num + 1
+    now = datetime.now()
+    io.output(led1, True)
+    x = "LED ON"
+    #print(x)
+    d1 = now.strftime("%d/%m/%Y")
+    #print("d1 = ", d1)
+    t1 = now.strftime("%H:%M:%S")
+    #print("time =", t1)
+	
+    #updating value in dictionary        
+    d["Date"]= d1
+    d["Time"]= t1
+    d["Status"]= x
+    d["ID"]= num
+
+    #dumping data in dictionary
+    j = open("new.json", "w")
+    json.dump(d, j)
+    j.close()
+
+    #dumping data in sqlite3
+    cur.execute("INSERT INTO led (Date, Time, Status, ID) values(?,?,?,?)", (d1, t1, x, num))
+
+    print(d)
+    time.sleep(300)
+
+
+    num = num + 1
+    now = datetime.now()
+    io.output(led1, False)
+    x = "LED OFF"
+    #print(x)
+    d1 = now.strftime("%d/%m/%Y")
+    #print("d1 = ", d1)
+    t1 = now.strftime("%H:%M:%S")
+    #print("time =", t1)
+    
+    time.sleep(1)
+    
+    d["Date"]= d1
+    d["Time"]= t1
+    d["Status"]= x
+    d["ID"]= num
+
+    j = open("new.json", "w")
+    json.dump(d, j)
+    j.close()
+
+    cur.execute("INSERT INTO led (Date, Time, Status, ID) values(?,?,?,?)",(d1, t1, x, num))
+    print(d)
+    time.sleep(300)
+    

@@ -1,0 +1,48 @@
+
+play with docker in browser
+
+1. pull url (repository)
+
+2. docker image ls
+
+3. docker run repositoryname
+
+
+Basic linux commands for docker
+
+1. download the required image (like ubuntu) use
+docker run ubuntu /docker pull ubuntu (check for local)
+
+2. to see list of all docker image or repository or containers (-a means all)
+docker ps -a
+
+3. to start a container (it means interactive) (image name)
+docker run -it ubuntu
+
+4. basic ubuntu commands (case sensitive)and directory goes with forward slash /home/rbiwebserver/ttp.py
+
+a) echo hello 		= to print
+b) whoami		= tells who is the user
+c) uname -a		= tells the ubuntu and kernel version
+d) echo $0		= tells the location
+e) history		= to see the previously used commands
+f) !2			= to use the second command from history output
+h) sudo apt update	= to update the packages in ubuntu
+i) apt install nano	= to install it from the packages in ubuntu
+j) apt list		= to list all the packages available
+i) ctrl+L		= to clear the terminal window
+j) apt remove nano	= to remove the package from ubuntu
+k) pwd			= to know the current directory
+l) ls -l		= detailed file info
+m) mv oldname newname 	= to rename the file or folder
+n) touch hello.txt	= to create a file
+o) ls -1		= to list one item in a line
+p)rm file*		= to delete all the files which starts like file
+q)rm -r			= to remove directory (recursive)
+r)head -n 5 filename	= to see the first 5 lines of a file
+s)tail -n 5 filename	= to see the last 5 lines of a file
+t)less filename		= to see the content in the file (enter to see next line)(space to see next page)(up and down arrow to scroll) (q to exit)
+u)
+
+
+5. 

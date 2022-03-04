@@ -1,0 +1,20 @@
+https://www.youtube.com/watch?v=KPOFncRDiHQ - esp32 to google spreadsheet
+
+ESP32 HTTP SERVER:
+
+1.Form input
+https://randomnerdtutorials.com/esp32-esp8266-input-data-html-form/
+
+2.EEPROM to change the wifi and password connection
+https://electronicsinnovation.com/change-esp32-wifi-credentials-without-uploading-code-from-arduino-ide/
+
+3.Base ESP32 HTTP Server
+https://lastminuteengineers.com/creating-esp32-web-server-arduino-ide/
+
+
+Nano/UNO with ethernet shield
+
+w5100 with uno - https://circuitdigest.com/microcontroller-projects/how-to-connect-your-arduino-uno-nano-with-internet-using-w5100-ethernet-module
+
+ENC2860J with uno - https://www.instructables.com/Arduino-Webserver-Controller-Using-Ethernet-ENC28J/
+

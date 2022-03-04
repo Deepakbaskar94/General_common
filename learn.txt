@@ -1,0 +1,5 @@
+1. Rest API
+2. Beautifulsoup - scraping
+3. PYQt6
+4. Robot Framework
+5. AWS iot 

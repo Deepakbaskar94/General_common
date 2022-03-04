@@ -1,0 +1,9 @@
+sudo apt-get update
+sudo apt-get update --fix-missing
+
+sudo raspi-config
+enable i2c
+sudo nano /boot/config.txt
+add in last line (dtparam=i2c1_baudrate=50000)
+save and reboot
+sudo apt-get install i2c-tools
